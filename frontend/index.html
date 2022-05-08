@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <title>ShopOnline</title>
+    </head>
+    <body>
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">ShopOnline</a>
+                <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNavAltMarkup">
+                        <div class="d-flex justify-content-start mx-4">
+                            <a class="nav-link active link-light fw-bold col mx-4" aria-current="page" href="../frontend/index.html">Home</a>
+                            <a class="nav-link link-light fw-bold col mx-4" href="#">Tech</a>
+                            <a class="nav-link link-light fw-bold col mx-4" href="#">home appliances</a>
+                            <a class="nav-link link-light fw-bold col mx-4" href="#">mobiles</a>
+                        </div>
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success link-light" type="submit">Search</button>
+                        </form>
+                        <div id="sellerOnly">
+                            <a href="https://fsndmedhat.eu.auth0.com/authorize?audience=shop&response_type=token&client_id=RhbVQ3WiBA5AmLYs7I5ipUft5pgGcFxl&redirect_uri=http://127.0.0.1:8080/">
+                                <button type="button"  class="btn btn-primary btn-lg login">Sign in</button>
+                            </a>
+                            <a href="https://fsndmedhat.eu.auth0.com/authorize?audience=shop&response_type=token&client_id=RhbVQ3WiBA5AmLYs7I5ipUft5pgGcFxl&redirect_uri=http://127.0.0.1:8080/">
+                            <button type="button"  class="btn btn-primary btn-lg login">Create Account</button>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="jumbotron bg-dark">
+            <div class="container-fluid">
+                <div class="row">
+                    <h1 class="display-4 text-white d-inline col align-self-center text-center">Shopping starts NOW</h1>
+                    <img src="imgs/Online.svg" class="rounded float-right d-inline col align-self-end" alt="imageScreen">
+                </div>
+            </div>
+        </div>
+        <div id="cards" class="d-flex flex-wrap justify-content-between">
+           
+        </div>
+        <script src="https://cdn.auth0.com/js/auth0/9.11/auth0.min.js"></script>
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="script/fun.js"></script>
+        <script src="script/sec.js"></script>
+        
+          </body>
+</html>

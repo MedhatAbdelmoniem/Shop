@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <title>ShopOnline</title>
+    </head>
+    <body>
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">ShopOnline</a>
+                <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNavAltMarkup">
+                        <div class="d-flex justify-content-start mx-4">
+                            <a class="nav-link active link-light fw-bold col mx-4" aria-current="page" href="#">Home</a>
+                            <a class="nav-link link-light fw-bold col mx-4" href="#">Tech</a>
+                            <a class="nav-link link-light fw-bold col mx-4" href="#">home appliances</a>
+                            <a class="nav-link link-light fw-bold col mx-4" href="#">mobiles</a>
+                        </div>
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success link-light" type="submit">Search</button>
+                        </form>
+                        <div>
+                            <a href="https://fsndmedhat.eu.auth0.com/authorize?audience=shop&response_type=token&client_id=RhbVQ3WiBA5AmLYs7I5ipUft5pgGcFxl&redirect_uri=http://127.0.0.1:8080/selling.html">
+                                <button type="button" id="login" class="btn btn-primary btn-lg">Sign in</button>
+                            </a>
+                            <a href="https://fsndmedhat.eu.auth0.com/authorize?audience=shop&response_type=token&client_id=RhbVQ3WiBA5AmLYs7I5ipUft5pgGcFxl&redirect_uri=http://127.0.0.1:8080/selling.html">
+                            <button type="button" id="login" class="btn btn-primary btn-lg">Create Account</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <form method="post" class="needs-validation" id='form' novalidate>
+            <div class="form-row">
+              <div class="col-md-6 mb-3">
+                <label for="validationCustom01">First name</label>
+                <input type="text" class="form-control" id="t1"  required>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="validationCustom02">product name</label>
+                <input type="text" class="form-control" id="t2"  required>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6 mb-3">
+                <label for="validationCustom03">description</label>
+                <input type="text" class="form-control" id="t3" required>
+                <div class="invalid-feedback">
+                  Please provide a description for your product
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="validationCustom03">image link</label>
+                <input type="text" class="form-control" id="t4" required>
+                <div class="invalid-feedback">
+                  Please provide an image for your product
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="validationCustom04">product type</label>
+                <select class="custom-select" id="t5" required>
+                  <option selected disabled value="">Choose type</option>
+                  <option>Tech</option>
+                  <option>home appliances</option>
+                  <option>mobiles</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a Product type
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="validationCustom05">Phone number</label>
+                <input type="text" class="form-control" id="t6" required>
+                <div class="invalid-feedback">
+                  Please enter your number
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit product</button>
+          </form>
+            
+        <script src="https://cdn.auth0.com/js/auth0/9.11/auth0.min.js"></script> 
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="../script/fun.js"></script>
+        <script src="../script/sec.js"></script>
+        <script>
+            (function() {
+              'use strict';
+              window.addEventListener('load', function() {
+                var forms = document.getElementsByClassName('needs-validation');
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                  form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                      event.preventDefault();
+                      event.stopPropagation();
+                     
+                    }else{
+                      var tokenSplit = window.location.hash.split('#access_token=')[1]
+            var token = ''
+            if(tokenSplit == undefined){
+                check = false
+            }else{
+                 token = tokenSplit.split('&expires_in=7200')[0]
+                 function parseJwt () {
+                    var base64Url = token.split('.')[1];
+                    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+                        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                    }).join(''));
+                    
+                    return JSON.parse(jsonPayload);
+                    };
+            }
+                      $.ajax({
+                                url: 'https://udacityshopproject.herokuapp.com/create/',
+                                type: 'post',  
+                                headers:{ 
+                                           "Authorization": 'bearer ' + token
+                                        }
+                                          ,
+                                data: { name: $('#t1').val(), product: $('#t2').val(), description: $('#t3').val() , image: $('#t4').val(), type: $('#t5').val(), phone: $('#t6').val()},
+                                success: ()=>{
+                                },
+                                error: ()=>{
+                                }
+                                });
+                    }
+                    form.classList.add('was-validated');
+                  }, false);
+                });
+              }, false);
+
+    
+            })();
+            </script>
+      </body>
+</html>

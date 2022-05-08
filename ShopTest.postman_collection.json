@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "853da262-80d4-464c-abb7-1d5a19772879",
+		"name": "ShopTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create seller",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InVqOFhsTFRTaWlJQW1VSzlkZFdBaCJ9.eyJpc3MiOiJodHRwczovL2ZzbmRtZWRoYXQuZXUuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYxMmQ3OTlmNjM1YjkwMDA3MTE5YmEyNyIsImF1ZCI6InNob3AiLCJpYXQiOjE2MzA2Mjg1MjcsImV4cCI6MTYzMDcxNDkyNywiYXpwIjoiUmhiVlEzV2lCQTVBbUxZczdJNWlwVWZ0NXBnR2NGeGwiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTpwcm9kdWN0IiwiZ2V0OnByb2R1Y3QiLCJwYXRjaDpwcm9kdWN0IiwicG9zdDpwcm9kdWN0Il19.Arv4n-HS3JQI1Ygn8859kx4MVdWmcMo-QpQOQRxg-vk_e0hC-H1NcTQTQ-HaLeFBq-D1rHDBXBlHAF-qaCWlyFEvmCKK8dkulydQFxu-Gz8NwthlOQqMzhOpdeY7USNgA9Ve0rIS5XLu3IbXrEF3y-RwbocixV-ZPiDPTcsppDJtleOi8tdxUT25oLS_k8BC3lPvVnxyAS0cvXcVYx7EVGu4LQI_4T9HJcFTyh3-DhMDROmoHLxLpEsdX0m9reKF1TiUtnwzaBrIXwcPfD2L7pLqvMF5dUl4WD419EmxzyDvnR3sOR85dJQ_Gq1bTduG52CFaBv78wRKVwRCgyTXtQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "seller",
+							"type": "text"
+						},
+						{
+							"key": "product",
+							"value": "laptop",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "Tech",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "good laptop",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"value": "image.link",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "02220",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://udacityshopproject.herokuapp.com/create",
+					"protocol": "https",
+					"host": [
+						"udacityshopproject",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "home(hello)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "get products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://udacityshopproject.herokuapp.com/home",
+					"protocol": "https",
+					"host": [
+						"udacityshopproject",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"home"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get product with id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "delete product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "edit product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "buyer token for seller only tasks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "fake token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "wrong address",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "wrong id for the product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "wrong values for create",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "delete wrong id product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}
